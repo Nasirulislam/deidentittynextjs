@@ -31,10 +31,20 @@ export default function Home() {
         await window.ethereum.enable();
         var adminAddress;
         if (isWeb3Enabled) {
-            adminAddress = (await admin()).toString().toLowerCase()
+            adminAddress = (await admin())
         }
 
         console.log(adminAddress)
+        try {
+            // Request account access if needed
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            // Accounts now exposed, use them
+            console.log(accounts)
+            // ethereum.send('eth_sendTransaction', { from: accounts[0], /* ... */ })
+        } catch (error) {
+            console.log(error)
+            // User denied account access
+        }
         // await window.ethereum.request({ method: 'eth_requestAccounts' });
         const keyB64 = await window.ethereum.request({
             method: 'eth_getEncryptionPublicKey',

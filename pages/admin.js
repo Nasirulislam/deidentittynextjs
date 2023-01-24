@@ -20,9 +20,17 @@ export default function Admin() {
     const { runContractFunction } = useWeb3Contract();
     async function askToGiveAccess(){
         console.log("asking....")
-        await window.ethereum.enable();
-
-       await window.ethereum.request({ method: 'eth_requestAccounts' })
+        try {
+            // Request account access if needed
+            const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+            // Accounts now exposed, use them
+            console.log(accounts)
+            ethereum.send('eth_sendTransaction', { from: accounts[0], /* ... */ })
+        } catch (error) {
+            console.log(error)
+            // User denied account access
+        }
+    //    await window.ethereum.request({ method: 'eth_requestAccounts' })
     }
     async function addProvider() {
         if (!ethers.utils.isAddress(inputValue)) {
