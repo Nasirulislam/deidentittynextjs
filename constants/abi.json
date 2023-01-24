@@ -1,0 +1,237 @@
+[
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "serviceProvider",
+                "type": "address"
+            }
+        ],
+        "name": "addServiceProvider",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "serviceProvider",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32[]",
+                "name": "serviceAttribute",
+                "type": "bytes32[]"
+            },
+            {
+                "internalType": "bytes32[]",
+                "name": "identityAttributeReference",
+                "type": "bytes32[]"
+            }
+        ],
+        "name": "addServiceToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "admin",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "attribute1",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute2",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute3",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute4",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute5",
+                "type": "bytes32"
+            }
+        ],
+        "name": "createIdentityToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getServiceProviders",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "serviceProvider",
+                "type": "address"
+            }
+        ],
+        "name": "getServiceTokens",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "serviceProvider",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "user",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "bytes32[]",
+                        "name": "serviceAttribute",
+                        "type": "bytes32[]"
+                    },
+                    {
+                        "internalType": "bytes32[]",
+                        "name": "identityAttributeReference",
+                        "type": "bytes32[]"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "isVerified",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct DeIdentity.ServiceToken[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getUnsignedRejectedIdentityTokens",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "identityTokensKeys",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "serviceProviders",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute1Hash",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute2Hash",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute3Hash",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute4Hash",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "attribute5Hash",
+                "type": "bytes32"
+            }
+        ],
+        "name": "signIdentityToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]
