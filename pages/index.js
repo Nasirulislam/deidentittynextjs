@@ -4,7 +4,10 @@ import { Inter } from '@next/font/google'
 import styles from "../styles/Home.module.css";
 import Header from "../components/header";
 import { useMoralis, useWeb3Contract } from "react-moralis";
+import { useEffect, useState } from "react"
 import { contractAddresses, abi } from "../constants"
+import { useNotification } from "web3uikit"
+import { ethers } from "ethers"
 
 const supportedChains = ["31337", "5"];
 export default function Home() {
@@ -12,9 +15,37 @@ export default function Home() {
   const { isWeb3Enabled, chainId } = useMoralis();
   // const moralis=new Moralis();
 
+  const {
+    runContractFunction: admin,
+    isLoading,
+    isFetching,
+  } = useWeb3Contract({
+    abi: abi,
+    contractAddress: contractAddress,
+    functionName: "admin",
+    params: {},
+  })
+  async function getAdminAndProviderAddresses() {
+    // Another way we could make a contract call:
+    // const options = { abi, contractAddress: raffleAddress }
+    // const fee = await Moralis.executeFunction({
+    //     functionName: "getEntranceFee",
+    //     ...options,
+    // })
+    const adminAddress = (await admin()).toString()
+    // const numPlayersFromCall = (await getPlayersNumber()).toString()
+    // const recentWinnerFromCall = await getRecentWinner()
+    //cont setEntranceFee(entranceFeeFromCall)
+    // setNumberOfPlayers(numPlayersFromCall)
+    // setRecentWinner(recentWinnerFromCall)
+    console.log(adminAddress)
+  }
 
- 
-  
+  useEffect(() => {
+    if (isWeb3Enabled) {
+      getAdminAndProviderAddresses()
+    }
+  }, [isWeb3Enabled])
   return (
     <div className={styles.container}>
       <Head>
